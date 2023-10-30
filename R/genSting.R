@@ -211,7 +211,7 @@ genSting = function(file_sting=NULL, path_shark='.', path_out='.', h='get', core
 
   #iterations=dim(mockcone)[1]
   if(restart){
-    outSED=fread(temp_file_output)
+    outSED=fread(temp_file_output, header=TRUE)
     subsnapIDs=base::unique(mockcone[!id_galaxy_sky %in% unique(outSED$V1),subsnapID])
     run_foreach = length(subsnapIDs) > 0
   }else{
@@ -486,7 +486,7 @@ mocksubsets = function(mockcone){
 }
 
 .dumpin = function(temp_file_output='temp.csv'){
-  fread(temp_file_output, integer64 = "integer64")
+  fread(temp_file_output, integer64 = "integer64", header=TRUE)
 }
 
 
